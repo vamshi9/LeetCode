@@ -24,6 +24,13 @@ class Solution(object):
                         area = max(area, heights[last] * i)
                     else:
                         area = max(area, heights[last] * (i - increasing[-1] - 1 ))
+            """
+            If still there are increasing histograms left
+            Ex => [1 2 3 4]
+            """
+            while increasing_histograms:
+                last = increasing.pop()
+                area = max(area,heights[last] * (i - increasing[-1] - 1 if increasing else i))     
             return area
 
         if not matrix:
