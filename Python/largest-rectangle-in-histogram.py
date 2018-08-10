@@ -26,6 +26,12 @@ class Solution:
                     area = max(area, height[last] * i)
                 else:
                     area = max(area, height[last] * (i - increasing[-1] - 1 ))
+         """
+         If we only have increasing heights such as [1,2,3,4]
+         """
+         while stack:
+            last = increasing.pop()
+            area = max(area,height[last] * (i - increasing[-1] - 1 if stack else i))
         return area
 
 if __name__ == "__main__":
