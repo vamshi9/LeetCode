@@ -40,11 +40,11 @@ class Solution(object):
             temp = []
             while l:
                 left_most = current.pop(0)
-                temp.append(left_most)
-                if node.left:
-                    result.append(node.left)
-                if node.right:
-                    result.append(node.right)
+                temp.append(left_most.val)
+                if left_most.left:
+                    current.append(left_most.left)
+                if left_most.right:
+                    current.append(left_most.right)
                 l -= 1
             result.append(temp)
         return result
