@@ -36,13 +36,15 @@ class Solution(object):
             return []
         result, current = [], [root]
         while current:
-            next_level, vals = [], []
-            for node in current:
-                vals.append(node.val)
+            l = len(current)
+            temp = []
+            while l:
+                left_most = current.pop(0)
+                temp.append(left_most)
                 if node.left:
-                    next_level.append(node.left)
+                    result.append(node.left)
                 if node.right:
-                    next_level.append(node.right)
-            current = next_level
-            result.append(vals)
+                    result.append(node.right)
+                l -= 1
+            result.append(temp)
         return result
