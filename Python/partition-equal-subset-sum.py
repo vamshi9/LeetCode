@@ -30,7 +30,7 @@ class Solution(object):
         :rtype: bool
         """
         s = sum(nums)
-        if s % 2:
+        if not s % 2:
             return False
 
         dp = [False] * (s/2 + 1)
